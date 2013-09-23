@@ -36,22 +36,40 @@ syn match flexOperator "\s\+_$"
 syn match flexOperator "[:]"
 "syn match flexOperator \"[#:]"
 
-" Other actions
-syn keyword flexMethods Add TypeCast Abort ArrayCopy Format Trace
-" Messaging actions
-syn keyword flexMethods Notify NotifyImmediately ReadCibMsg ReadESXMessage RequestNotifyImmediately
-syn keyword flexMethods SendAtiMessage SendAtmMessage SendAtsiMessage SendCIBMessage SendESXMessage SendSms
-" Balancing actions
-syn keyword flexMethods ReadBalance Recharge SetBalance Reserve BalanceIdToName BalanceNameToId Charge
-syn keyword flexMethods DeleteBalObject ReleaseReservation SetExpirationDate SetSessionCreditLimit SetSessionValues
-" Subscription actions
-syn keyword flexMethods GetSubscriptions GetSubscriptionState GetOnTouchDateForSubscription GetLogicId
-" String actions
-syn keyword flexMethods SubString StringTokenizer StringStartsWith StringReplace StringLength StringCase
-syn keyword flexMethods PatternMatch IndexOf DecodeString CutPrefix AsciiToChar
-" Time actions
-syn keyword flexMethods GetCurrentTime ModifyDate 
-syn keyword flexMethods InstanceIDMapper
+" Flex Actions
+syn keyword flexMethods Abort AccessStatisticsCounter Addition AddNumberToList AppendAnnoForGroupCall
+syn keyword flexMethods AppendAnnouncement AppendClassification AppendMenuItem AppendMenuItemSelCodeList
+syn keyword flexMethods AppendValue ArrayCopy AsciiToChar Assignment Charge DeleteBalObject ReadBalance
+syn keyword flexMethods Recharge ReleaseReservation Reserve SetSessionCreditLimit SetExpirationDate SetSessionValues
+syn keyword flexMethods BitwiseOps BooleanTerm CallSubroutine ChangeNumberAtPositionInList CheckPin Condition Connect
+syn keyword flexMethods CounterCalculateNextDate CounterCheckAccumulators CounterGetPeriodFactor
+syn keyword flexMethods CounterGetSubscriberValue CounterInitialize CounterRemove CounterSetBalances
+syn keyword flexMethods CounterSetSubscriberValue CreateUniqueId CutPrefix DecodeString DecrementUseCaseCounter
+syn keyword flexMethods DeleteNumberFromList DeleteSubscription DynamicAliasGenAcc ExistsVariable
+syn keyword flexMethods FindDiscountsForContract FindInDataModel FindMandatoryPackagesForContract FindMnpData
+syn keyword flexMethods FindPeriodicForContract FindProductForContract FindSubscriptionsForContract FloatDivision
+syn keyword flexMethods FlushNotifications Format genMsgAddLeafs genMsgCreateNewMsg genMsgGetEnumValue
+syn keyword flexMethods genMsgGetEventType genMsgReadEventAttribute genMsgSendAndFlush GetCalendarField
+syn keyword flexMethods GetCellCongestion GetCurrentTime GetGroupMembership GetHandleOfCursor GetLogicId
+syn keyword flexMethods GetNumberFromList GetNumberOfReferencedEntities GetOnTouchDateForSubscription
+syn keyword flexMethods GetRoamingZone GetRoamingZoneByDomain GetRoamingZoneByIPAddress GetRoamingZoneByMccMnc
+syn keyword flexMethods GetSize GetSubscriptions GetSubscriptionState GetSuppliers GetTimeId GetTimeZoneInfo
+syn keyword flexMethods GetValue GroupCall HttpRequest IfEqual IfGreater IfLess IncrementUseCaseCounter
+syn keyword flexMethods IndexOf InsertNewSubscription IntegerDivision IsClassificationAvailable IsInRange
+syn keyword flexMethods IsNumberInList IsPerformanceTimerRunning IsSubscriptionActive IsSubscriptionInfoSet
+syn keyword flexMethods IsSubscriptionMandatory IsValueAvailable LoadSubscriberData BalanceIdToName
+syn keyword flexMethods BalanceNameToId Matrix Maximum MaximumFromList Minimum MinimumFromList ModifyDate
+syn keyword flexMethods ModifyNumberInList Modulo Multiplication Multiplex NavigateCursor NavigateCursorInList
+syn keyword flexMethods NoOperation Notify NotifyImmediately NormalizeNumber PatternMatch PlayAnnouncement
+syn keyword flexMethods PlayMenu Prompt ReadCIBMessage ReadESXMessage ReadTicket RemoveGenericAccessVariable
+syn keyword flexMethods RemoveOptionalGDMAttribute RequestNotifyImmediately ResetMenuAndAnnos SendAtiMessage
+syn keyword flexMethods SendAtmMessage SendAtsiMessage SendCIBMessage SendESXMessage SendSmsViaMap SendSms
+syn keyword flexMethods SendUSSDNotification SendUSSDPrompt SendUSSDResponse SetBalance SetCallTicketFields
+syn keyword flexMethods SetCursorByHandle SetLocalPushFields SetOnTouchDateForSubscription SetPushFields
+syn keyword flexMethods SetSubscriptionActive SetSubscriptionInfo Sort StandardVoucherRecharging StartPerformanceTimer
+syn keyword flexMethods StopPerformanceTimer StringCase StringConcatenation StringLength StringReplace
+syn keyword flexMethods StringStartsWith StringTokenizer SubString Subtraction Switch TimeIntervals TimeZone
+syn keyword flexMethods Trace TypeCast WasSubscriptionInsertedViaBatch WriteConfirmationTicket
 
 "syn keyword flexEvents Activate ActiveRowChanged
 
