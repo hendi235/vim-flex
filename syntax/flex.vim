@@ -11,21 +11,21 @@ elseif exists("b:current_syntax")
 	finish
 endif
 
-" Flex Logic is case insensitive
+" Flex Logic is case sensitive
 "syn case ignore
 
-syn keyword flexConditional IF THEN ELIF ELSE CASE SWITCH EQUALS
+syn keyword flexConditional IF THEN ELSIF ELSE CASE SWITCH EQUALS
 syn keyword flexRepeat DO FOR LOOP NEXT TO UNTIL END WHILE
 "Statement
 syn keyword flexStatement PARAMETERS RESULTS DEFAULT RETURN INTERFACE
 syn keyword flexStatement EXISTS CALL ADMIN_INSTANCE INSTANCE SPECIAL CASES
-syn keyword flexStatement ON OR TO XOR AND NOT
+syn keyword flexStatement ON OR TO XOR AND NOT # OF
 syn keyword flexStatement CALL_IF_EXISTS IF_NOT_EXISTS IF_EXISTS
 
 syn keyword flexBoolean  TRUE FALSE
 syn keyword flexConst NULL
 "Datatypes
-syn keyword flexTypes BOOLEAN BYTE 
+syn keyword flexTypes BOOLEAN BYTE FLOAT ARRAY
 syn keyword flexTypes INTEGER LONG STRING CONST ENUM
 syn keyword flexTypes DATE TIME DATE_AND_TIME
 
@@ -33,13 +33,24 @@ syn match flexOperator "[()+.,\-/*=&]"
 syn match flexOperator "[<>]=\="
 syn match flexOperator "<>"
 syn match flexOperator "\s\+_$"
-syn match flexOperator "[#:]"
-" Methods
-syn keyword flexMethods Add Notify NotifyImmediately ReadCibMsg TypeCast 
-syn keyword flexMethods ReadBalance Recharge SetBalance Reserve
-syn keyword flexMethods GetSubscriptions
-syn keyword flexMethods SubString StringTokenizer StringWith
-syn keyword flexMethods GetCurrentTime ModifyDate SetExpirationDate
+syn match flexOperator "[:]"
+"syn match flexOperator \"[#:]"
+
+" Other actions
+syn keyword flexMethods Add TypeCast Abort ArrayCopy Format Trace
+" Messaging actions
+syn keyword flexMethods Notify NotifyImmediately ReadCibMsg ReadESXMessage RequestNotifyImmediately
+syn keyword flexMethods SendAtiMessage SendAtmMessage SendAtsiMessage SendCIBMessage SendESXMessage SendSms
+" Balancing actions
+syn keyword flexMethods ReadBalance Recharge SetBalance Reserve BalanceIdToName BalanceNameToId Charge
+syn keyword flexMethods DeleteBalObject ReleaseReservation SetExpirationDate SetSessionCreditLimit SetSessionValues
+" Subscription actions
+syn keyword flexMethods GetSubscriptions GetSubscriptionState GetOnTouchDateForSubscription GetLogicId
+" String actions
+syn keyword flexMethods SubString StringTokenizer StringStartsWith StringReplace StringLength StringCase
+syn keyword flexMethods PatternMatch IndexOf DecodeString CutPrefix AsciiToChar
+" Time actions
+syn keyword flexMethods GetCurrentTime ModifyDate 
 syn keyword flexMethods InstanceIDMapper
 
 "syn keyword flexEvents Activate ActiveRowChanged
