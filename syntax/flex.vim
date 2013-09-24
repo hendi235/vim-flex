@@ -16,15 +16,16 @@ endif
 
 syn keyword flexConditional IF THEN ELSIF ELSE CASE SWITCH EQUALS
 syn keyword flexRepeat DO FOR LOOP NEXT TO UNTIL END WHILE
-"Statement
+" Statement
 syn keyword flexStatement PARAMETERS RESULTS DEFAULT RETURN INTERFACE
 syn keyword flexStatement EXISTS CALL ADMIN_INSTANCE INSTANCE SPECIAL CASES
-syn keyword flexStatement ON OR TO XOR AND NOT # OF
+syn keyword flexStatement ON OR TO XOR AND NOT OF
 syn keyword flexStatement CALL_IF_EXISTS IF_NOT_EXISTS IF_EXISTS
+syn match flexStatement "[#]"
 
 syn keyword flexBoolean  TRUE FALSE
 syn keyword flexConst NULL
-"Datatypes
+" Datatypes
 syn keyword flexTypes BOOLEAN BYTE FLOAT ARRAY
 syn keyword flexTypes INTEGER LONG STRING CONST ENUM
 syn keyword flexTypes DATE TIME DATE_AND_TIME
@@ -71,28 +72,16 @@ syn keyword flexMethods StopPerformanceTimer StringCase StringConcatenation Stri
 syn keyword flexMethods StringStartsWith StringTokenizer SubString Subtraction Switch TimeIntervals TimeZone
 syn keyword flexMethods Trace TypeCast WasSubscriptionInsertedViaBatch WriteConfirmationTicket
 
-"syn keyword flexEvents Activate ActiveRowChanged
-
-"syn keyword flexFunction Abs Array Asc AscB AscW Atn Avg BOF CBool CByte
-"syn keyword flexFunction 
-
-"syn keyword flexKeyword Public PublicNotCreateable OnNewProcessSingleUse
-
+" Todo
 syn keyword flexTodo contained	TODO
 
-"syn keyword flexDefine flex3DDKShadow flex3DFace flex3DHighlight flex3DLight
-
-
-"Numbers
-"integer number, or floating point number without a dot.
+" Numbers
+" integer number, or floating point number without a dot.
 syn match flexNumber "\<\d\+\>"
-"floating point number, with dot
+" floating point number, with dot
 syn match flexNumber "\<\d\+\.\d*\>"
-"floating point number, starting with a dot
+" floating point number, starting with a dot
 syn match flexNumber "\.\d\+\>"
-"syn match  flexNumber		"{[[:xdigit:]-]\+}\|&[hH][[:xdigit:]]\+&"
-"syn match  flexNumber		":[[:xdigit:]]\+"
-"syn match  flexNumber		"[-+]\=\<\d\+\>"
 syn match  flexFloat		"[-+]\=\<\d\+[eE][\-+]\=\d\+"
 syn match  flexFloat		"[-+]\=\<\d\+\.\d*\([eE][\-+]\=\d\+\)\="
 syn match  flexFloat		"[-+]\=\<\.\d\+\([eE][\-+]\=\d\+\)\="
@@ -105,6 +94,27 @@ syn match   flexLineNumber	"^\d\+\(\s\|$\)"
 syn match   flexTypeSpecifier  "[a-zA-Z0-9][\$%&!#]"ms=s+1
 syn match   flexTypeSpecifier  "#[a-zA-Z0-9]"me=e-1
 
+" Generic access global variable
+"syn match flexGlobalVar    
+""theGenericAccess.\{-}[,;\s]"
+syn match flexGlobalVar    "theGenericAccess[^;|:|,| ]*"
+
+" just to test coloring
+syn keyword flexStorage storageClass
+syn keyword flexException exceptionClass
+syn keyword flexSpecialChar specialCharClass
+syn keyword flexLabel labelClass
+syn keyword flexPrecondition preconditionClass
+syn keyword flexTestRepeat repeatClass
+syn keyword flexStructure structureClass
+syn keyword flexMacro macroClass
+syn keyword flexInclude includeClass
+syn keyword flexDefinition defineClass
+syn keyword flexDelimiter delimiterClass
+syn keyword flexVimString vimStringClass
+syn keyword flexVimSpecial vimSpecialClass
+syn keyword flexWarningMsg warningMsgClass
+
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
 " For version 5.8 and later: only when an item doesn't have highlighting yet
@@ -116,22 +126,40 @@ if version >= 508 || !exists("did_flex_syntax_inits")
 		command -nargs=+ HiLink hi def link <args>
 	endif
 
-	HiLink flexBoolean		Identifier
+        " just to test coloring"
+        HiLink flexVimString    vimString
+        HiLink flexVimSpecial    vimSpecial
+        HiLink flexWarningMsg    WarningMsg
+        HiLink flexStorage    StorageClass
+        HiLink flexSpecialChar    SpecialChar
+        HiLink flexPrecondition    PreCondit
+        HiLink flexException    Exception
+        HiLink flexLabel    Label
+        HiLink flexTestRepeat    Repeat
+        HiLink flexStructure   Structure
+        HiLink flexMacro   Macro
+        HiLink flexInclude    Include
+        HiLink flexDefinition    Define
+        HiLink flexDelimiter    Delimiter
+        " ---------
+        
+        HiLink flexGlobalVar    Todo
+	HiLink flexBoolean		Special "Identifier
 	HiLink flexLineNumber		Comment
 	HiLink flexComment		Comment
 	HiLink flexConditional    Identifier	
-	HiLink flexConst			Constant
+	HiLink flexConst		Special	"Constant
 	HiLink flexDefine			Constant
 	HiLink flexError			Error
 	HiLink flexFunction		Identifier
 	HiLink flexIdentifier		Identifier
 	HiLink flexNumber			Number
-	HiLink flexFloat			Float
+	HiLink flexFloat			Number "Float
 	HiLink flexMethods		PreProc
 	HiLink flexOperator		Operator
 "	HiLink flexRepeat			Repeat
         HiLink flexRepeat			Identifier
-	HiLink flexString			String
+	HiLink flexString		SpecialChar	"String
 	HiLink flexStatement		Identifier
 	HiLink flexKeyword		Statement
 	HiLink flexEvents			Special
