@@ -17,7 +17,7 @@ endif
 syn keyword flexConditional IF THEN ELSIF ELSE CASE SWITCH EQUALS
 syn keyword flexRepeat DO FOR LOOP NEXT TO UNTIL END WHILE
 " Statement
-syn keyword flexStatement PARAMETERS RESULTS DEFAULT RETURN INTERFACE
+syn keyword flexStatement PARAMETERS RESULTS DEFAULT RETURN INTERFACE MANDATORY
 syn keyword flexStatement EXISTS CALL ADMIN_INSTANCE INSTANCE SPECIAL CASES
 syn keyword flexStatement ON OR TO XOR AND NOT OF
 syn keyword flexStatement CALL_IF_EXISTS IF_NOT_EXISTS IF_EXISTS
@@ -94,10 +94,10 @@ syn match   flexLineNumber	"^\d\+\(\s\|$\)"
 syn match   flexTypeSpecifier  "[a-zA-Z0-9][\$%&!#]"ms=s+1
 syn match   flexTypeSpecifier  "#[a-zA-Z0-9]"me=e-1
 
-" Generic access global variable
-"syn match flexGlobalVar    
-""theGenericAccess.\{-}[,;\s]"
+" Global variable
 syn match flexGlobalVar    "theGenericAccess[^;|:|,| ]*"
+syn match flexGlobalVar    "InputParameters[^;|:|,| ]*"
+syn match flexGlobalVar    "tga[^;|:|,| ]*"
 
 " just to test coloring
 syn keyword flexStorage storageClass
