@@ -25,5 +25,19 @@ if exists("loaded_matchit")
     \ '\%(^\s*\)\@<=\<with\>:\%(^\s*\)\@<=\<end\>\s\<with\>,'
 endif
 "    \ '\%(^\s*\)\@<=\<switch\>.*\<equals\>:\%(^\s*\)\@<=\<case\>:\%(^\s*\)\@<=\<end\>\s\+\<case\>:\%(^\s*\)\@<=\<end\>\s\+\<switch\>,' .
+
+" ctrlp support
+" Assuming that ctrlp is always in our toolbox, here are custom ctrlp setting
+" for working in FLEX
+" MRU mode is case-unsensitive
+let g:ctrlp_mruf_case_sensitive = 0
+" end ctrlp
+
+" I want ctrlp to search file case-insensitive, so disable smartcase search
+" (smartcase is enabled in .vimrc).
+" Because Flex exports subroutines name from logic all in lowercase
+"set smartcase
+"set ignorecase
+
 let &cpo = s:cpo_save
 unlet s:cpo_save
