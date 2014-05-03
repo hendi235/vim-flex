@@ -5,5 +5,7 @@
 "  finish
 "endif
 "augroup filetypedetect
-  au BufRead,BufNewFile *.fles_model setfiletype flex
+  au BufNewFile,BufRead *.sl set filetype=flex
+  au BufNewFile,BufRead *.dataflow set filetype=flex
+  au BufRead,BufNewFile *.fles_model set filetype=flex
 "augroup END
