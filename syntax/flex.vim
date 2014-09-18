@@ -19,7 +19,7 @@ syn keyword flexRepeat DO FOR LOOP NEXT TO UNTIL END WHILE
 " Statement
 syn keyword flexStatement PARAMETERS RESULTS DEFAULT RETURN INTERFACE MANDATORY
 syn keyword flexStatement EXISTS CALL ADMIN_INSTANCE INSTANCE SPECIAL CASES
-syn keyword flexStatement ON OR TO XOR AND NOT OF
+syn keyword flexStatement ON OR TO XOR AND NOT OF DIV
 syn keyword flexStatement CALL_IF_EXISTS IF_NOT_EXISTS IF_EXISTS
 syn match flexStatement "[#]"
 
@@ -35,6 +35,7 @@ syn match flexOperator "[<>]=\="
 syn match flexOperator "<>"
 syn match flexOperator "\s\+_$"
 syn match flexOperator "[:]"
+
 "syn match flexOperator \"[#:]"
 
 " Flex Actions
@@ -94,10 +95,24 @@ syn match   flexLineNumber	"^\d\+\(\s\|$\)"
 syn match   flexTypeSpecifier  "[a-zA-Z0-9][\$%&!#]"ms=s+1
 syn match   flexTypeSpecifier  "#[a-zA-Z0-9]"me=e-1
 
-" Global variable
-syn match flexGlobalVar    "theGenericAccess[^;|:|,| ]*"
-syn match flexGlobalVar    "InputParameters[^;|:|,| ]*"
-syn match flexGlobalVar    "tga[^;|:|,| ]*"
+" Global variable a.k.a Generic Access
+syn match flexGlobalVar    "theGenericAccess\.[^;|:|,| ]*"
+syn match flexGlobalVar    "InputParameters\.[^;|:|,| ]*"
+syn match flexGlobalVar    "tga\.[^;|:|,| ]*"
+syn match flexGlobalVar    "Const\.[^;|:|,| ]*"
+syn match flexGlobalVar    "CCS[^;|:|,| ]*\.[^;|:|,| ]*"
+syn match flexGlobalVar    "AdditionalResult\.[^;|:|,| ]*"
+syn match flexGlobalVar    "Call[^;|:|,| ]*\.[^;|:|,| ]*"
+syn match flexGlobalVar    "Counters\.[^;|:|,| ]*"
+syn match flexGlobalVar    "CheapSpot\.[^;|:|,| ]*"
+syn match flexGlobalVar    "FBC\.[^;|:|,| ]*"
+syn match flexGlobalVar    "HotCharge[^;|:|,| ]*\.[^;|:|,| ]*"
+syn match flexGlobalVar    "OnTouch\.[^;|:|,| ]*"
+syn match flexGlobalVar    "QoS\.[^;|:|,| ]*"
+syn match flexGlobalVar    "RatingInformation\.[^;|:|,| ]*"
+syn match flexGlobalVar    "Ss7[^;|:|,| ]*\.[^;|:|,| ]*"
+syn match flexGlobalVar    "SponsoredCalls\.[^;|:|,| ]*"
+syn match flexGlobalVar    "DTMF[^;|:|,| ]*\.[^;|:|,| ]*"
 
 " just to test coloring
 syn keyword flexStorage storageClass
@@ -143,7 +158,7 @@ if version >= 508 || !exists("did_flex_syntax_inits")
         HiLink flexDelimiter    Delimiter
         " ---------
         
-        HiLink flexGlobalVar    Todo
+        HiLink flexGlobalVar    Type    "Todo
 	HiLink flexBoolean		Special "Identifier
 	HiLink flexLineNumber		Comment
 	HiLink flexComment		Comment
@@ -164,7 +179,7 @@ if version >= 508 || !exists("did_flex_syntax_inits")
 	HiLink flexKeyword		Statement
 	HiLink flexEvents			Special
 	HiLink flexTodo			Todo
-	HiLink flexTypes			Type
+	HiLink flexTypes		Todo    "Type
 	HiLink flexTypeSpecifier	Type
 
 	delcommand HiLink
