@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:    Flex Logic	
-" Maintainer: hendi.maulana@redknee.com
+" Maintainer: hendi.maulana
 " Last Change:
 
 " For version 5.x: Clear all syntax items
@@ -113,6 +113,8 @@ syn match flexGlobalVar    "RatingInformation\.[^;|:|,| ]*"
 syn match flexGlobalVar    "Ss7[^;|:|,| ]*\.[^;|:|,| ]*"
 syn match flexGlobalVar    "SponsoredCalls\.[^;|:|,| ]*"
 syn match flexGlobalVar    "DTMF[^;|:|,| ]*\.[^;|:|,| ]*"
+syn match flexGlobalVar    "convChargingGAEvent\.[^;|:|,| ]*"
+syn match flexGlobalVar    "CallSupervision\.[^;|:|,| ]*"
 
 " just to test coloring
 syn keyword flexStorage storageClass
